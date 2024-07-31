@@ -1,15 +1,28 @@
 version: "3.8"
 services:
-  mysql:
-    image: mysql:8.0
-    container_name: mysql_db
+  # mysql:
+  #   image: mysql:8.0
+  #   container_name: mysql_db
+  #   restart: always
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #     MYSQL_DATABASE: db_crud
+  #     MYSQL_USER: articulos_crud
+  #     MYSQL_PASSWORD: root
+  #   volumes:
+  #     - ./mysql:/var/lib/mysql
+  #   ports:
+  #     - "3307:3306"
+
+  postgres:
+    image: postgres:14
+    container_name: postgres_db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: db_crud
-      MYSQL_USER: articulos_crud
-      MYSQL_PASSWORD: root
+      POSTGRES_DB: db_crud
+      POSTGRES_USER: articulos_crud
+      POSTGRES_PASSWORD: root
     volumes:
-      - ./mysql:/var/lib/mysql
+      - ./postgres:/var/lib/postgresql/data
     ports:
-      - "3307:3306"
+      - "5433:5432"
