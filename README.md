@@ -33,19 +33,6 @@ $ pnpm install
 
 ```
 
-## Base de datos
-
-```bash
-# docker
-$ docker compose up -d
-
-ó
-
-# descomentar la linea 5 hasta la 10 
-# de app.module.ts para tomar la config de ElphantSQL
-
-```
-
 ## Running
 
 ```bash
