@@ -3,17 +3,17 @@ import { IsDate, IsDateString, IsOptional, IsString, Max, MinLength } from "clas
 export class CreateArticuloDto {
 
     @IsString()
-    @MinLength(5)
+    //@MinLength(5)
     titulo: string;
 
     @IsString()
-    @MinLength(10)
+    //@MinLength(10)
     contenido: string;
 
     @IsDateString()
     fechaPublicacion: string;
     
     @IsString()
-    @MinLength(3)
+    //@MinLength(3)
     autor: string;
 }
