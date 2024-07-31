@@ -11,7 +11,7 @@ export class CreateArticuloDto {
     contenido: string;
 
     @IsDateString()
-    fechaPublicacion: Date;
+    fechaPublicacion: string;
     
     @IsString()
     @MinLength(3)
