@@ -38,7 +38,7 @@ describe('ArticulosService', () => {
 
   describe('create', () => {
     it('debería crear un artículo', async () => {
-      const dto = { titulo: 'Título', contenido: 'Contenido', fechaPublicacion: new Date(), autor: 'Autor' };
+      const dto = { titulo: 'Título', contenido: 'Contenido', fechaPublicacion: new Date().toISOString(), autor: 'Autor' };
       const result = new Articulo();
       jest.spyOn(repository, 'save').mockResolvedValue(result);
 
@@ -48,7 +48,7 @@ describe('ArticulosService', () => {
     it('debería lanzar BadRequestException si ocurre un error', async () => {
       jest.spyOn(repository, 'save').mockRejectedValue(new Error('Error'));
 
-      await expect(service.create({ titulo: 'Título', contenido: 'Contenido', fechaPublicacion: new Date(), autor: 'Autor' }))
+      await expect(service.create({ titulo: 'Título', contenido: 'Contenido', fechaPublicacion: new Date().toISOString(), autor: 'Autor' }))
         .rejects
         .toThrow(BadRequestException);
     });

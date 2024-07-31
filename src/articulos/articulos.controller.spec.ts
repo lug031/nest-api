@@ -41,24 +41,27 @@ describe('ArticulosController', () => {
   describe('create', () => {
     it('debería crear un artículo', async () => {
       const dto: CreateArticuloDto = {
-        titulo: 'Nuevo Artículo',
-        contenido: 'Contenido del artículo',
-        fechaPublicacion: new Date('2024-07-30'),
-        autor: 'Autor',
+        titulo: 'Audio libro 5',
+        contenido: 'El audio libro 5 en este articulo.',
+        fechaPublicacion: "2024-07-30",
+        autor: 'Anonimo',
       };
-      const result: Articulo = {
-        id: 'c8b6d181-7cd0-4f56-88e3-1c3eb9780a1f',
+
+      const result = {
+        id: 'ca9a0e81-2013-4861-ad3d-91758039882e',
         titulo: dto.titulo,
         contenido: dto.contenido,
-        fechaPublicacion: new Date(dto.fechaPublicacion),
+        fechaPublicacion: dto.fechaPublicacion,
         autor: dto.autor,
         deletedAt: null,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: "2024-07-31T09:55:37.853Z",
+        updatedAt: "2024-07-31T09:55:37.853Z",
       };
-      jest.spyOn(service, 'create').mockResolvedValue(result);
 
-      expect(await controller.create(dto)).toBe(result);
+      //jest.spyOn(service, 'create').mockResolvedValue(result);
+
+      const response = await controller.create(dto);
+      expect(response).toEqual(result);
     });
   });
 
